@@ -6,7 +6,7 @@ urls = (
 	'/(\d+)', 'article',
 )
 
-src_path = "../montag/lib/"
+src_path = "../monologue"
 app = web.application(urls, globals())
 
 class index:

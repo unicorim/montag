@@ -15,11 +15,10 @@ class index:
 		
 class article:
 	def GET(self, no):
-		#try:
-		article = open(os.path.join(src_path, "%s.txt" % no), 'r')
-		return article.read()
-		#except IOError:
-		#	return "Trying to read article no. " + no
+		try:
+			return open(os.path.join(src_path, "%s.txt" % no), 'r').read
+		except IOError as err:
+			return "Dear admin, fix this " + err
 		
 if __name__ == "__main__":
 	app.run()
