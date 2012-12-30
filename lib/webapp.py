@@ -19,7 +19,7 @@ class article:
 			article = open(os.path.join(src_path, "%s.txt" % no), 'r')
 			return article.read()
 		except IOError:
-			return "Dear admin,\nplease fix this 404"
+			return "Dear admin,\nplease fix this 404\nthx,\nmontag"
 		
 if __name__ == "__main__":
 	app.run()
