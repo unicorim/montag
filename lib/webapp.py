@@ -16,9 +16,10 @@ class index:
 class article:
 	def GET(self, no):
 		try:
-			return open(os.path.join(src_path, "%s.txt" % no), 'r').read
-		except IOError as err:
-			return "Dear admin, fix this " + err
+			article = open(os.path.join(src_path, "%s.txt" % no), 'r')
+			return article.read()
+		except IOError:
+			return "Dear admin,\nplease fix this 404"
 		
 if __name__ == "__main__":
 	app.run()
