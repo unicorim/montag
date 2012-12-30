@@ -1,10 +1,12 @@
 import web
+import os
 
 urls = (
 	'/', 'index',
 	'/(\d+)', 'article',
 )
 
+src_path = "../montag/lib/"
 app = web.application(urls, globals())
 
 class index:
@@ -13,7 +15,11 @@ class index:
 		
 class article:
 	def GET(self, no):
-		return "Hi, you are reading article no. " +  no
+		#try:
+		article = open(os.path.join(src_path, "%s.txt" % no), 'r')
+		return article.read()
+		#except IOError:
+		#	return "Trying to read article no. " + no
 		
 if __name__ == "__main__":
 	app.run()
