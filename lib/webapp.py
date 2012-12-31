@@ -1,4 +1,5 @@
 import web
+from web.contrib.template import render_jinja
 import os
 
 urls = (
@@ -8,6 +9,10 @@ urls = (
 
 src_path = "../monologue"
 app = web.application(urls, globals())
+render = render_jinja(
+	'templates',
+	encoding='utf-8',
+)
 
 class index:
 	def GET(self):
