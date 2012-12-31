@@ -21,8 +21,8 @@ class index:
 class article:
 	def GET(self, no):
 		try:
-			article = open(os.path.join(src_path, "%s.txt" % no), 'r')
-			return article.read()
+			article = open(os.path.join(src_path, "%s.txt" % no), 'r').read()
+			return render.article(no=no, article=article)
 		except IOError:
 			return "Dear admin,\nplease fix this 404\nthx,\nmontag"
 		
