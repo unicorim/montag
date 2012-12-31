@@ -1,6 +1,7 @@
 import web
 from web.contrib.template import render_jinja
 import os
+import markdown
 
 urls = (
 	'/', 'index',
@@ -21,7 +22,7 @@ class index:
 class article:
 	def GET(self, no):
 		try:
-			article = open(os.path.join(src_path, "%s.txt" % no), 'r').read()
+			article = markdown.process(open(os.path.join(src_path, "%s.txt" % no), 'r').read())
 			return render.article(no=no, article=article)
 		except IOError:
 			return "Dear admin,\nplease fix this 404\nthx,\nmontag"
