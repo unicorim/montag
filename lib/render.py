@@ -1,6 +1,7 @@
 from web.contrib.template import render_jinja
-import os
+import os, sys
 
+script, filename = sys.argv
 src_path = "../monologue"
 render = render_jinja(
     'templates',
@@ -11,7 +12,8 @@ def html(now):
     try:
         body = open(os.path.join(src_path, "%s.txt" % now)).read()
     except IOError as err:
-        print "Could not open file: %s" % err    
-    return render.article(body=body, no=now)
+        print "Could not open file: %s" % err
+    static_ver = open(os.path.join(src_path, "%s.txt" % now), 'w')
+    return static_ver.write(render.article(body=body, no=now))
 
-print html("1")
+html(filename)
