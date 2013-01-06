@@ -2,9 +2,8 @@ import re
 
 def process(string):
 
-    ignore = re.findall(r"(\\\*.*?\\\*)", string)
-    for i in ignore:
-        string = string.replace(i, "|"*15)    
+    string = '<p>' + string + '</p>'
+    string = string.replace('\n', '</p><p>')
     string = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", string)
 
     string = re.sub(r"\*(.*?)\*", r"<i>\1</i>", string)
@@ -19,6 +18,5 @@ def process(string):
     string = re.sub(r"\[(.*?)\]\((.*?)\)", r"<a href='\2'>\1</a>", string)
     string = re.sub(r"`(.*?)`", r"<code>\1</code>", string)
     string = re.sub(r"(?m)    (.*)(?=($|[\n]))", r"<pre><code>\1</code></pre>", string)
-    for i in ignore:
-        string = string.replace("|"*15, i)
+
     return string
