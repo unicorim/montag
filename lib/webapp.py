@@ -22,8 +22,7 @@ class index:
 class article:
 	def GET(self, no):
 		try:
-			article = markdown.process(open(os.path.join(src_path, "%s.txt" % no), 'r').read())
-			return render.article(no=no, article=article)
+			return open(os.path.join(src_path, "%s.txt" % no))
 		except IOError:
 			return "Dear admin,\nplease fix this 404\nthx,\nmontag"
 		
