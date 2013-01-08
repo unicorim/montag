@@ -4,7 +4,7 @@ import os
 
 urls = (
 	'/', 'index',
-	'/(\d+)', 'article',
+	'/(.*)', 'article',
 )
 
 src_path = "../monologue"
@@ -21,7 +21,7 @@ class index:
 class article:
 	def GET(self, no):
 		try:
-			return open(os.path.join(src_path, "%s.txt" % no))
+			return open(os.path.join(src_path, "%s.html" % no))
 		except IOError:
 			return "Dear admin,\nplease fix this 404\nthx,\nmontag"
 		
