@@ -1,7 +1,6 @@
 import web
 from web.contrib.template import render_jinja
 import os
-import markdown
 
 urls = (
 	'/', 'index',
