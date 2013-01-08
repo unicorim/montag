@@ -11,9 +11,9 @@ render = render_jinja(
 def html(now):
     try:
         body = open(os.path.join(src_path, "%s.txt" % now)).read()
+        static_ver = open(os.path.join(src_path, "%s.html" % now), 'w')
+        return static_ver.write(render.article(body=body, no=now))
     except IOError:
         print "Could not open file :("
-    static_ver = open(os.path.join(src_path, "%s.html" % now), 'w')
-    return static_ver.write(render.article(body=body, no=now))
 
 html(filename)
