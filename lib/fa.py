@@ -4,9 +4,9 @@ def ber(string):
 
     string = '<p>' + string + '</p>'
     string = string.replace('\n', '</p><p>')
-    string = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", string)
+    string = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", string)
 
-    string = re.sub(r"\*(.*?)\*", r"<i>\1</i>", string)
+    string = re.sub(r"\*(.*?)\*", r"<em>\1</em>", string)
     supers = re.findall(r"(?<=\^)(.*?)($|[ ])", string)
     if supers:
         replacers = [x[0] for x in supers]
