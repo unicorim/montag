@@ -1,5 +1,5 @@
 from web.contrib.template import render_jinja
-import os, sys
+import os, sys, fa
 
 script, filename = sys.argv
 src_path = "../monologue"
@@ -10,7 +10,7 @@ render = render_jinja(
 
 def html(now):
     try:
-        body = open(os.path.join(src_path, "%s.txt" % now)).read()
+        body = fa.ber(open(os.path.join(src_path, "%s.txt" % now)).read())
         static_ver = open(os.path.join(src_path, "%s.html" % now), 'w')
         return static_ver.write(render.article(body=body, no=now))
     except IOError:
