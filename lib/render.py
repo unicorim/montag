@@ -10,7 +10,7 @@ render = render_jinja(
 
 def html(now):
     try:
-        body = fa.ber(open(os.path.join(src_path, "%s.txt" % now)).read())
+        body = fa.ber(open(os.path.join(src_path, "%s.txt" % now)).read().strip())
         static_ver = open(os.path.join(src_path, "%s.html" % now), 'w')
         return static_ver.write(render.article(body=body, no=now))
     except IOError:
