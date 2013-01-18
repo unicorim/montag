@@ -1,4 +1,15 @@
 a := System args at(1)
+b := System args at(2)
 
+cmd := Object clone do (
+  dir := Directory currentWorkingDirectory
+  mod := method("Will put something else here okay?" println)
 
-if (a == "init") then (writeln("Initialized montag in " .. Directory currentWorkingDirectory)) elseif (a == "new") then (writeln("Initializing montag in " .. Directory currentWorkingDirectory .. "/" .. System args at(2) .. ". Please wait...") Directory setPath("/" .. System args at(2)) exists print) else (writeln "WUT are you talking about?") 
+  boot := method(writeln("Initialized montag in " .. dir))
+  create := method(newly,
+      	 writeln("Initializing montag in " .. dir .. "/" .. newly))
+)
+
+arg := cmd clone
+
+if (a=="init", cmd boot) elseif (a=="new", cmd create(b), "WUT?" print)
