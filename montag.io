@@ -12,4 +12,4 @@ cmd := Object clone do (
 
 arg := cmd clone
 
-if (a=="init", cmd boot) elseif (a=="new", cmd create(b), "WUT?" print)
+if (a=="init", cmd boot, "WUT?" println)
