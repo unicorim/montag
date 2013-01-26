@@ -5,7 +5,7 @@ yaml := Object clone do (
     )
      write := method(this_file,
       keywords := list("title", "author", "created", "content", "tags")
-      f := File with(this_file) readLines
+      f := File with(this_file) readLines as Mutable strip
       i := File with(this_file .. ".mntg") remove openForUpdating
       keywords foreach(k,e, i write(e .. ": " .. f at(k), "\n"))
     )
