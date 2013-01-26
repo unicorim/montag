@@ -7,11 +7,10 @@ yaml := Object clone do (
       keywords := list("title", "author", "created", "content", "tags")
       f := File with(this_file) readLines
       i := File with(this_file .. ".mntg") remove openForUpdating
-      f foreach(keywords, i write(keywords .. " : " .. f, "\n"))
+      keywords foreach(k,e, i write(e .. ": " .. f at(k), "\n"))
     )
   )
 
 trial := yaml clone
-trial read("foo.txt")
 trial write("foo.txt")
 trial read("foo.txt.mntg")
