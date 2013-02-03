@@ -1,13 +1,22 @@
-MONTAG(1)
+ 
 
-Hi, for those who starred and forked this repo, I can explain
-montag took a dive for the worst and volunteered to be rewritten
-in IO. So, if you were looking forward to dat pythonic static site
-generator, look elsewhere like hyde. Thank you for taking interest
-for this long and see you again next time.
+                         // montag //
 
-                            * * *
+                   montag gets a lot of hate
+       He thought he was some kind of oneshot wunderkind, but
+                  he got ditched by Python
+                  he got ditched by Io
+                  he got picked  by Go
 
-For new users: hiya! this is montag, a now IO based static site 
-generator. I've decided to use in favour of python, cos python is
-boring you know
+          He thinks he's useless; but he isn't. He's just a
+                                        
+                    static    site     generator
+
+          He thinks he's worthless charity. But he's just a
+
+                    static    site     generator
+
+                       written in that Golang
+                        visit http://mn.tg 
+                          -> for more info
+                          -> for less whitespace
